@@ -1,0 +1,16 @@
+1. Install virtual env wrapper - pip install virtualenvwrapper-win
+2. Create virtual env - mkvirtualevn envname(It will automtically create and activate virtual env)
+3. Other cmd to activate virtual env - workon envname
+4. Install django - pip install django
+5. Crate project - django-admin startproject projectname
+6. Run server(go to your project location and then run the cmd) - python manage.py runserver
+7. Uninstall django env - First run your virtual env(workon envname), pip uninstall django
+8. Remove virtual env - rmvirtualenv geek
+9. Uninstall env wrapper - pip uninstall virtualenvwrapper-win
+
+................................................................................
+python -m venv env
+source env/Scripts/activate
+django-admin startproject Imageuploader
+
+winpty python manage.py createsuperuser
