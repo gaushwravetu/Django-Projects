@@ -6,6 +6,10 @@ def index(request):
     return render(request,"index.html")
 
 def removepunc(request):
+    #get the text
+    djtext = request.GET.get('text','default')
+    print(djtext)
+    #analyse the text
     return render(request,"removepunc.html")
 
 def capitalizefirst(request):
