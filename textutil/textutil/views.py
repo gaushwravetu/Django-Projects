@@ -20,28 +20,26 @@ def analyze(request):
         for char in djtext:
             if char not in punclist:
                 result+=char
+        parameters = {'purpose':'Removed punctuations','analysed_text': result}
         djtext=result
-        parameters = {'purpose':'Removed punctuations','analysed_text':djtext}
-        return render(request,"analyze.html",parameters)
     
     if capital=='on':
         result = ''
         result = djtext.upper()
+        parameters = {'purpose':'Capitalized text','analysed_text': result}
         djtext=result
-        parameters = {'purpose':'Capitalized text','analysed_text':djtext}
-        return render(request,"analyze.html",parameters)
     
     if newline=='on':
         result = ''
         for char in djtext:
-            if char!= '\n':
+            if char!= '\n' and char!='\r':
                 result+=char
-        djtext=result
-        parameters = {'purpose':'New line remover','analysed_text':djtext}
-        return render(request,"analyze.html",parameters)
+        parameters = {'purpose':'New line remover','analysed_text': result}
 
-    else:
+    if(removepunc!='on' and capital!='on' and newline!='on'):
         return HttpResponse('Error')
+    
+    return render(request,"analyze.html",parameters)
 
 # def capitalizefirst(request):
 #     return render(request,"capitalizefirst.html")
